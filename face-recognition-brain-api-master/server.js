@@ -10,12 +10,16 @@ const db = knex({
   connection: {
     host: "127.0.0.1",
     user: "postgres",
-    password: "", //unsecure1234
+    password: "unsecure1234",
     database: "smartbrain",
   },
 });
 
-console.log(db.select("*").from("users"));
+db.select("*")
+  .from("users")
+  .then((data) => {
+    console.log(data);
+  });
 
 const app = express();
 
