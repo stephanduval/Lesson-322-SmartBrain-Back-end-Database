@@ -4,13 +4,15 @@ const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 const knex = require("knex");
 
+var config = require("./environment_variables/db");
+
 const db = knex({
   // Enter your own database information here based on what you created
   client: "pg",
   connection: {
     host: "127.0.0.1",
     user: "postgres",
-    password: "unsecure1234",
+    password: config.dbPass,
     database: "smartbrain",
   },
 });
