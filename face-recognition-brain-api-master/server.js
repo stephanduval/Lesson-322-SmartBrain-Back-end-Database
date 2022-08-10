@@ -9,11 +9,13 @@ const db = knex({
   client: "pg",
   connection: {
     host: "127.0.0.1",
-    user: "aneagoie",
-    password: "",
-    database: "smart-brain",
+    user: "postgres",
+    password: "", //unsecure1234
+    database: "smartbrain",
   },
 });
+
+console.log(db.select("*").from("users"));
 
 const app = express();
 
@@ -21,7 +23,7 @@ app.use(cors());
 app.use(express.json()); // latest version of exressJS now comes with Body-Parser!
 
 app.get("/", (req, res) => {
-  res.send(database.users);
+  res.send("CONNECTED");
 });
 
 app.post("/signin", (req, res) => {
@@ -110,5 +112,5 @@ app.put("/image", (req, res) => {
 });
 
 app.listen(3001, () => {
-  console.log("app is running on port 3000");
+  console.log("app is running on port 3001");
 });
