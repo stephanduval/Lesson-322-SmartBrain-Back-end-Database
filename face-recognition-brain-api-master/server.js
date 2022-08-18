@@ -17,12 +17,6 @@ const db = knex({
   },
 });
 
-db.select("*")
-  .from("users")
-  .then((data) => {
-    console.log(data);
-  });
-
 const app = express();
 
 app.use(cors());
@@ -117,6 +111,6 @@ app.put("/image", (req, res) => {
     .catch((err) => res.status(400).json("unable to get entries"));
 });
 
-app.listen(3001, () => {
-  console.log("app is running on port 3001");
+app.listen(3000, () => {
+  console.log("app is running on port 3000");
 });
