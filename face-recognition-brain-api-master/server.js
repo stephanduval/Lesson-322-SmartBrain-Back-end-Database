@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt-nodejs");
 const cors = require("cors");
 const knex = require("knex");
 
-var config = require("./environment_variables/db");
+var config = require("./environment_variables/config");
 
 const db = knex({
   // Enter your own database information here based on what you created
